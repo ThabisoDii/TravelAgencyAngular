@@ -44,7 +44,7 @@
        
         <div class="col-sm-3">
             <div class="form-group ">
-                <select name = "depa" class="form-control form-control-success" >
+                <select name = "depa" class="form-control form-control-success" required ngModel>
                     <option>Departure &#xf072;</option>
                     <option>OR Tambo Int.Airport </option>
                     <option>Lenseria Int.Airport</option>
@@ -81,7 +81,7 @@
                     <div class="form-group">
                         <div class="input-group date" [ngClass]="{'input-group-focus':focus===true}">
                             <input class="form-control" placeholder="yyyy-mm-dd"
-                                 name="dp2" [(ngModel)]="Departure" ngbDatepicker #d2="ngbDatepicker" (click)="d2.toggle()" (focus)="focus=true" (blur)="focus=false" />
+                                 name="dp2" [(ngModel)]="Departure" ngbDatepicker #d2="ngbDatepicker" (click)="d2.toggle()" (focus)="focus=true" (blur)="focus=false" required ngModel/>
                             <div class="input-group-append">
                                 <span class="glyphicon glyphicon-calendar input-group-text">
                                   <i class="fa fa-calendar" aria-hidden="true"></i>
@@ -123,7 +123,7 @@
        <div class="row"></div>
         <div class="col-sm-3">
             <div class="form-group ">
-                <select class="form-control form-control-success " >
+                <select class="form-control form-control-success " required ngModel>
                     <option>Quatity</option>
                     <option>1</option>
                     <option>2</option>
