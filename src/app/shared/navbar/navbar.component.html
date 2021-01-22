@@ -36,8 +36,13 @@
                     <a href="https://www.creative-tim.com/product/paper-kit-2-pro-angular?ref=pk2-angular-free-local" target="_blank" class="btn btn-danger btn-round">Upgrade to Pro</a>
                 </li> <!---if you're logged in as an admin you're seeing a different tab-->
                 <li class="nav-item" *ngIf="!isHome()">
-                    <a routerLink="/signin" *ngIf="!isDocumentation()" class="nav-link"><i class="nc-icon nc-single-02"></i>Login</a>
+                    <a routerLink="/signin" *ngIf="!isOnline()" class="nav-link"><i class="nc-icon nc-single-02"></i>Login</a>
                     <a [routerLink]="['/home']" *ngIf="isDocumentation()" class="nav-link">Back to Kit</a>
+                </li>
+
+                <li class="nav-item" *ngIf="isOnline()">
+                    <a onclick="signOut()" *ngIf="userOnline" class="nav-link"><i class="nc-icon nc-single-02"></i>Logout</a>
+                    
                 </li>
                 <li class="nav-item" *ngIf="isDocumentation()">
                     <a href="https://github.com/creativetimofficial/paper-kit-2-angular/issues?ref=pk2-free-local" target="_blank" class="nav-link">Have an issue</a>

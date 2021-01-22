@@ -9,11 +9,13 @@ import { SignupComponent } from './examples/signup/signup.component';
 import { LandingComponent } from './examples/landing/landing.component';
 import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.component';
 import { SigninComponent } from './examples/signin/signin.component';
+import { BookFlightComponent } from './examples/book-flight/book-flight.component';
 
 const routes: Routes =[
     { path: '', redirectTo: 'landing', pathMatch: 'full' },
     { path: 'home',             component: ComponentsComponent },
     { path: 'signin',           component: SigninComponent },
+    { path: 'book-flight',           component: BookFlightComponent },
     { path: 'user-profile',     component: ProfileComponent },
     { path: 'signup',           component: SignupComponent },
     { path: 'landing',          component: LandingComponent },

@@ -1,0 +1,149 @@
+<div class="wrapper">
+    <div class="page-header" style="background-image: url('./assets/img/flights.jpg');">
+        
+    <div class="container">
+      
+    <!---  <div class="section">
+          <div class="container">
+             
+              <br/>
+              <div class="row">
+                  <div class="col-md-6">
+                      
+
+                      <div class="nav-tabs-navigation">
+                          <div class="nav-tabs-wrapper">
+                              <ngb-tabset [justify]="'center'">
+                                  <ngb-tab title="Home">
+                                      <ng-template ngbTabContent>
+                                          <p>Larger, yet dramatically thinner. More powerful, but remarkably power efficient. With a smooth metal surface that seamlessly meets the new Retina HD display.</p>
+                                      </ng-template>
+                                  </ngb-tab>
+                                  <ngb-tab title="Profile">
+                                      <ng-template ngbTabContent>
+                                          <p>Here is your profile.</p>
+                                      </ng-template>
+                                  </ngb-tab>
+                                  <ngb-tab title="Messages">
+                                      <ng-template ngbTabContent>
+                                          <p>Here are your messages.</p>
+                                      </ng-template>
+                                  </ngb-tab>
+                              </ngb-tabset>
+                          </div>
+                      </div>
+
+                  </div>
+
+                 
+              </div>
+          </div>
+      </div> -->
+      <form #searchFlightForm="ngForm" (submit)="searchFlights(searchFlightForm)" class="register-form">
+      <div class="row">
+       
+        <div class="col-sm-3">
+            <div class="form-group ">
+                <select name = "depa" class="form-control form-control-success" >
+                    <option>Departure &#xf072;</option>
+                    <option>OR Tambo Int.Airport </option>
+                    <option>Lenseria Int.Airport</option>
+                    <option>Cape Town Int.Airport</option>
+                    <option>East London Int.Airport</option>
+                    <option>King Shaka Int.Airport</option>
+                    <option>Port Elizabeth Int.Airport</option>
+                </select>
+                
+            </div>
+        </div>
+
+        <div class="col-sm-3">
+            <div class="form-group ">
+                <select class="form-control form-control-success " >
+                    <option>Arrival &#xf072;</option>
+                    <option>OR Tambo Int.Airport</option>
+                    <option>Lenseria Int.Airport</option>
+                    <option>Cape Town Int.Airport</option>
+                    <option>East London Int.Airport</option>
+                    <option>King Shaka Int.Airport</option>
+                    <option>Port Elizabeth Int.Airport</option>
+                </select>
+                
+            </div>
+        </div>
+        
+    </div>
+
+    <div class =  "row">
+        <div class="row">
+            <div class='col-sm-3'>
+                <div class="form-inline">
+                    <div class="form-group">
+                        <div class="input-group date" [ngClass]="{'input-group-focus':focus===true}">
+                            <input class="form-control" placeholder="yyyy-mm-dd"
+                                 name="dp2" [(ngModel)]="Departure" ngbDatepicker #d2="ngbDatepicker" (click)="d2.toggle()" (focus)="focus=true" (blur)="focus=false" />
+                            <div class="input-group-append">
+                                <span class="glyphicon glyphicon-calendar input-group-text">
+                                  <i class="fa fa-calendar" aria-hidden="true"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+                    
+            <div class="row">
+                <div class='col-sm-3'>
+                    <div class="form-inline">
+                        <div class="form-group">
+                            <div class="input-group date" [ngClass]="{'input-group-focus':focus===true}">
+                                <input class="form-control" placeholder="yyyy-mm-dd"
+                                     name="dp" [(ngModel)]="Arrival" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" (focus)="focus=true" (blur)="focus=false" />
+                                <div class="input-group-append">
+                                    <span class="glyphicon glyphicon-calendar input-group-text">
+                                      <i class="fa fa-calendar" aria-hidden="true"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+
+
+    <div class="row">
+       <br>
+       <div class="row"></div>
+        <div class="col-sm-3">
+            <div class="form-group ">
+                <select class="form-control form-control-success " >
+                    <option>Quatity</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                </select>
+                
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="row">
+        <div class="col-lg-8">
+            <button class="btn btn-danger btn-block btn-round" [disabled]="!searchFlightForm.valid">Find flights</button>
+            
+        </div>
+    </div>
+</form>
+</div>
+</div>
+</div>
+
+
