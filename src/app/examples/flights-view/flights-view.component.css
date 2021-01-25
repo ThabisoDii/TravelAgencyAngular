@@ -1,0 +1,15 @@
+.mat-list-icon {
+    color: rgba(0, 0, 0, 0.54);
+  }
+  
+  .list-item {
+    cursor: pointer;
+  }
+  
+  .list-item:hover {
+    background: #eee;
+  }
+  
+  .list-item .hidden{
+    display: none;
+  }

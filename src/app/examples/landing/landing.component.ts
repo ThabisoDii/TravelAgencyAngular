@@ -19,4 +19,8 @@ export class LandingComponent implements OnInit {
     this.router.navigate(['/', 'signup']);
   }
 
+  searchFlight() {
+    this.router.navigate(['/', 'search-flight']);
+  }
+
 }

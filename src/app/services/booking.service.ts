@@ -10,9 +10,9 @@ export class BookingService {
 
   searchFlights(flightDetails){
 
-    console.log(flightDetails)
+    
     const httpHeaders = new HttpHeaders();
-    httpHeaders.append('content-type','application/json')
-    return this.httpClient.post('http://localhost:3000/book-flight',flightDetails,{headers : httpHeaders})
+    
+    return this.httpClient.post('http://localhost:3000/search/flights',flightDetails)
   }
 }

@@ -1,17 +1,16 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BookingService } from 'app/services/booking.service';
-import { DatePipe } from '@angular/common'
-import * as moment from 'moment';
-import {Flight} from "../../models/Flight"
 
 @Component({
-  selector: 'app-book-flight',
-  templateUrl: './book-flight.component.html',
-  styleUrls: ['./book-flight.component.css']
+  selector: 'app-search-flights',
+  templateUrl: './search-flights.component.html',
+  styleUrls: ['./search-flights.component.css']
 })
-export class BookFlightComponent implements OnInit {
+export class SearchFlightsComponent implements OnInit {
 
-  constructor(private bookingService: BookingService,public datepipe: DatePipe) { }
+  constructor(private bookingService: BookingService,public datepipe: DatePipe,private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -31,6 +30,8 @@ export class BookFlightComponent implements OnInit {
     this.bookingService.searchFlights(formData).subscribe(data => {
       
        console.log(data) 
+
+       this.router.navigate(['/', 'view-flights']);/// pass a list of flights with this route
     });
    
   }

@@ -10,15 +10,19 @@ import { LandingComponent } from './examples/landing/landing.component';
 import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.component';
 import { SigninComponent } from './examples/signin/signin.component';
 import { BookFlightComponent } from './examples/book-flight/book-flight.component';
+import { SearchFlightsComponent } from './examples/search-flights/search-flights.component';
+import { FlightsViewComponent } from './examples/flights-view/flights-view.component';
 
 const routes: Routes =[
     { path: '', redirectTo: 'landing', pathMatch: 'full' },
     { path: 'home',             component: ComponentsComponent },
-    { path: 'signin',           component: SigninComponent },
-    { path: 'book-flight',           component: BookFlightComponent },
-    { path: 'user-profile',     component: ProfileComponent },
+    { path: 'landing',           component: LandingComponent },
     { path: 'signup',           component: SignupComponent },
-    { path: 'landing',          component: LandingComponent },
+    { path: 'signin',           component: SigninComponent },
+    {path: 'search-flight',           component: SearchFlightsComponent },
+    { path: 'book-flight',           component: BookFlightComponent},
+    { path: 'user-profile',     component: ProfileComponent },
+    { path: 'view-flights',           component: FlightsViewComponent},
     { path: 'nucleoicons',      component: NucleoiconsComponent }
 ];
 

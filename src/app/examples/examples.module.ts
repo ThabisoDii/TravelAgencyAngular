@@ -8,6 +8,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
 import { BookFlightComponent } from './book-flight/book-flight.component';
+import { FlightsViewComponent } from './flights-view/flights-view.component';
+import { SearchFlightsComponent } from './search-flights/search-flights.component';
 
 @NgModule({
     imports: [
@@ -20,7 +22,9 @@ import { BookFlightComponent } from './book-flight/book-flight.component';
         SignupComponent,
         ProfileComponent,
         SigninComponent,
-        BookFlightComponent
+        BookFlightComponent,
+        FlightsViewComponent,
+        SearchFlightsComponent
     ]
 })
 export class ExamplesModule { }
