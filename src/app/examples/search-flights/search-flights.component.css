@@ -1,3 +1,42 @@
 select {
     font-family: 'FontAwesome', 'sans-serif';
   }
+
+
+  .mat-list-icon {
+    color: rgba(0, 0, 0, 0.54);
+  }
+  
+  .list-item {
+    cursor: pointer;
+  }
+  
+  .list-item:hover {
+    background: #eee;
+  }
+  
+  .list-item .hidden{
+    display: none;
+  }
+
+  .card-flights {
+    background-color: rgb(0, 0, 0,0.7);
+    border-radius: 8px;
+    color: #fff;
+    max-width: 350px;
+    margin: 150px 0 70px;
+    min-height: 400px;
+    padding: 10px;
+    z-index: 1;
+  }
+
+ 
+    .card-flights:hover
+   {
+        box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
+        transform: none;
+        -webkit-transform: none;
+        -ms-transform: none;
+        -moz-transform: none;
+    }
+  

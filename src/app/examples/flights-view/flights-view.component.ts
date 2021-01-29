@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 export interface Section {
   name: string;
@@ -13,9 +14,11 @@ export interface Section {
 })
 export class FlightsViewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: ActivatedRoute,) { }
 
   ngOnInit(): void {
+
+     
   }
 
   folders: Section[] = [
@@ -30,7 +33,7 @@ export class FlightsViewComponent implements OnInit {
       open: false
     },
     {
-      name: 'Work',
+      name: 'OR Tambo Int.Airport',
       updated: new Date('1/28/16'),
       open: false
     }

@@ -1,16 +1,25 @@
 import { DatePipe } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, Input, OnInit, Output } from '@angular/core';
+import { Router,NavigationExtras } from '@angular/router';
 import { BookingService } from 'app/services/booking.service';
+import { EventEmitter } from 'events';
+
+
 
 @Component({
   selector: 'app-search-flights',
   templateUrl: './search-flights.component.html',
   styleUrls: ['./search-flights.component.css']
+
+  
 })
 export class SearchFlightsComponent implements OnInit {
 
+  flights: any = [];
+ 
   constructor(private bookingService: BookingService,public datepipe: DatePipe,private router: Router) { }
+
+   navigationExtras: NavigationExtras = {};
 
   ngOnInit(): void {
   }
@@ -30,8 +39,11 @@ export class SearchFlightsComponent implements OnInit {
     this.bookingService.searchFlights(formData).subscribe(data => {
       
        console.log(data) 
-
-       this.router.navigate(['/', 'view-flights']);/// pass a list of flights with this route
+       this.flights= data;
+      //this.flightsEvent.emit(flights);
+      // this.router.navigate(['/', 'view-flights']);/// pass a list of flights with this route
+     
+      //this.router.navigate(['/view-flights'],flights);
     });
    
   }

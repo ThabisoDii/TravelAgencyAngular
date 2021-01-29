@@ -1,8 +1,34 @@
-<mat-list>
-    <h3 mat-subheader>Folders</h3>
-    <mat-list-item *ngFor="let folder of folders; let i = index" (click)="toggleArrow(i)" class="list-item">
-      <mat-icon mat-list-icon >aflight_takeoff</mat-icon>
-      <h4 mat-line>{{folder.name}}</h4>
-      <p mat-line> {{folder.updated | date}} </p>
-    </mat-list-item>
-  </mat-list>
+<div class="wrapper">
+    <div class="page-header" style="background-image: url('./assets/img/flights.jpg');">
+       
+
+          <div class="card card-flights">
+            <!--
+            <mat-list>
+                <h3 mat-subheader>Folders</h3>
+                <mat-list-item *ngFor="let folder of folders; let i = index" (click)="toggleArrow(i)" class="list-item">
+                  <mat-icon mat-list-icon >flight_takeoff</mat-icon>
+                
+                  <h4 mat-line>{{flights.departure_date}}</h4>
+                  <p mat-line> {{flights.departure_date}} </p>
+                </mat-list-item>
+              </mat-list> -->
+
+              <app-flights-view-tile [flights]></app-flights-view-tile>
+             
+            
+            
+        </div>
+                
+            </div>
+
+
+
+            
+    </div>
+
+
+    <div class="footer register-footer text-center">
+        <h6>&copy;{{test | date: 'yyyy'}}, made with <i class="fa fa-heart heart"></i> by Creative Tim</h6>
+    </div>
+

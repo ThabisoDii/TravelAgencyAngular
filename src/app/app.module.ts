@@ -15,7 +15,9 @@ import { ExamplesModule } from './examples/examples.module';
 import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
 import {TokenInterceptorService} from './services/token-interceptor.service';
-//import {MatListModule} from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatListModule} from '@angular/material/list';
+import {MatIconModule} from '@angular/material/icon';
 
 
 
@@ -36,6 +38,9 @@ import {TokenInterceptorService} from './services/token-interceptor.service';
     ComponentsModule,
     ExamplesModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    MatListModule,
+    MatIconModule
   ],
   providers: [DatePipe,{
     provide : HTTP_INTERCEPTORS,
