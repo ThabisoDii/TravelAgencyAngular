@@ -8,8 +8,20 @@ import { Component, OnInit } from '@angular/core';
 
 export class ProfileComponent implements OnInit {
 
+    isStandardUser :boolean; 
+    isAdminUser :boolean; 
+
+    user:any ={
+        name : "Thabiso",
+        surname : "Diphare"
+    }
+    
     constructor() { }
 
-    ngOnInit() {}
+    ngOnInit() {
+
+        this.isStandardUser =  false;
+        this.isAdminUser = true;
+    }
 
 }
