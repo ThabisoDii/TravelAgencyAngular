@@ -1,8 +1,8 @@
-<div class="wrapper">
+<div class="wrapper ">
     <div class="page-header page-header-xs" data-parallax="true" style="background-image: url('./assets/img/fabio-mangione.jpg');">
         <div class="filter"></div>
     </div>
-    <div class="section profile-content">
+    <div class="section profile-content page-color" >
         <div class="container">
             <div class="owner">
                 <div class="avatar">
@@ -10,138 +10,163 @@
                 </div>
                 <div class="name">
                     <h4 class="title">{{user.name}} {{user.surname}}<br /></h4>
-                    <h6 class="description">Music Producer</h6>
+                    <h6 class="description">Admin User</h6>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6 ml-auto mr-auto text-center">
-                    <p>An artist of considerable range, Jane Faker — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. </p>
+                    <p>As an admin you can add new flights,approve or decline user's requested tickets </p>
                     <br />
-                    <button class="btn btn-outline-default btn-round"><i class="fa fa-cog"></i> Settings</button>
+                    
                 </div>
             </div>
             <br/>
-            <div *ngIf="isStandardUser"class="nav-tabs-navigation">
-                <div class="nav-tabs-wrapper">
-                    <ngb-tabset [justify]="'center'">
-                        <ngb-tab title="Pending approval Ticket">
-                            <ng-template ngbTabContent >
-                                <div class="row following" id="follows">
-                                    <div class="col-md-6 ml-auto mr-auto">
-                                        <ul class="list-unstyled follows">
-                                            <li>
-                                                <div class="row">
-                                                    <div class="col-md-2 col-sm-2 ml-auto mr-auto">
-                                                        <img src="./assets/img/faces/clem-onojeghuo-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-                                                    </div>
-                                                    <div class="col-md-7 col-sm-4 ml-auto">
-                                                        <h6>Flume<br/><small>Musical Producer</small></h6>
-                                                    </div>
-                                                    <div class="col-md-3 col-sm-2 ml-auto mr-auto">
-                                                        <div class="form-check">
-                                                          <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox" value="" checked="">
-                                                            <span class="form-check-sign"></span>
-                                                          </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <hr />
-                                            <li>
-                                                <div class="row">
-                                                    <div class="col-md-2 col-sm-2 ml-auto mr-auto">
-                                                        <img src="./assets/img/faces/ayo-ogunseinde-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-                                                    </div>
-                                                    <div class="col-md-7 col-sm-4 ml-auto">
-                                                        <h6>Banks<br /><small>Singer</small></h6>
-                                                    </div>
-                                                    <div class="col-md-3 col-sm-2 ml-auto mr-auto">
-                                                        <div class="form-check">
-                                                          <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox" value="" checked="">
-                                                            <span class="form-check-sign"></span>
-                                                          </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </ng-template>
-                        </ngb-tab>
-                        <ngb-tab title="Approved Tickets">
-                            <ng-template ngbTabContent>
-                                <h3 class="text-muted">Not following anyone yet :(</h3>
-                                <br>
-                                <button class="btn btn-warning btn-round">Find artists</button>
-                            </ng-template>
-                        </ngb-tab>
-                    </ngb-tabset>
-                </div>
-            </div>
 
-            <div *ngIf="isAdminUser"class="nav-tabs-navigation">
-                <div class="nav-tabs-wrapper">
-                    <ngb-tabset [justify]="'center'">
-                        <ngb-tab title="Add Tickets">
-                            <ng-template ngbTabContent >
-                                <div class="row following" id="follows">
-                                    <div class="col-md-6 ml-auto mr-auto">
-                                        <ul class="list-unstyled follows">
-                                            <li>
-                                                <div class="row">
-                                                    <div class="col-md-2 col-sm-2 ml-auto mr-auto">
-                                                        <img src="./assets/img/faces/clem-onojeghuo-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-                                                    </div>
-                                                    <div class="col-md-7 col-sm-4 ml-auto">
-                                                        <h6>Flume<br/><small>Musical Producer</small></h6>
-                                                    </div>
-                                                    <div class="col-md-3 col-sm-2 ml-auto mr-auto">
-                                                        <div class="form-check">
-                                                          <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox" value="" checked="">
-                                                            <span class="form-check-sign"></span>
-                                                          </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <hr />
-                                            <li>
-                                                <div class="row">
-                                                    <div class="col-md-2 col-sm-2 ml-auto mr-auto">
-                                                        <img src="./assets/img/faces/ayo-ogunseinde-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-                                                    </div>
-                                                    <div class="col-md-7 col-sm-4 ml-auto">
-                                                        <h6>Banks<br /><small>Singer</small></h6>
-                                                    </div>
-                                                    <div class="col-md-3 col-sm-2 ml-auto mr-auto">
-                                                        <div class="form-check">
-                                                          <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox" value="" checked="">
-                                                            <span class="form-check-sign"></span>
-                                                          </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
+        </div>
+    </div>
+
+
+
+    <div class="nav-tabs-navigation" >
+        <div class="nav-tabs-wrapper">
+            <ngb-tabset [justify]="'center'">
+                <ngb-tab title="Add flight">
+                    <ng-template ngbTabContent >
+                        <div class="row following card card-flights"  id="follows">
+                            <div class="col-6 ml-auto mr-auto">
+                                
+                                <form #addFlightForm="ngForm" (submit)="addFlight(addFlightForm)" class="register-form">
+                                    <div class="row">
+                                     
+                                      <div class="col-sm-5">
+                                          <div class="form-group ">
+                                              <select name = "departure_airport" class="form-control form-control-success" [(ngModel)]="arrival" required ngModel>
+                                                  <option >Departure &#xf072;</option>
+                                                  <option value="OR Tambo Int.Airport">OR Tambo Int.Airport </option>
+                                                  <option value="Lenseria Int.Airport">Lenseria Int.Airport</option>
+                                                  <option value="Cape Town Int.Airport">Cape Town Int.Airport</option>
+                                                  <option value="East London Int.Airport">East London Int.Airport</option>
+                                                  <option value="King Shaka Int.Airport">King Shaka Int.Airport</option>
+                                                  <option value="Port Elizabeth Int.Airport">Port Elizabeth Int.Airport</option>
+                                              </select>
+                                              
+                                          </div>
+                                      </div>
+                              
+                                      <div class="col-sm-5">
+                                          <div class="form-group ">
+                                              <select name = "arrival_airport"class="form-control form-control-success " [(ngModel)]="departure">
+                                                  <option >Arrival &#xf072;</option>
+                                                  <option value="OR Tambo Int.Airport">OR Tambo Int.Airport </option>
+                                                  <option value="Lenseria Int.Airport">Lenseria Int.Airport</option>
+                                                  <option value="Cape Town Int.Airport">Cape Town Int.Airport</option>
+                                                  <option value="East London Int.Airport">East London Int.Airport</option>
+                                                  <option value="King Shaka Int.Airport">King Shaka Int.Airport</option>
+                                                  <option value="Port Elizabeth Int.Airport">Port Elizabeth Int.Airport</option>
+                                              </select>
+                                              
+                                          </div>
+                                      </div>
+                                      
+                                  </div>
+                              
+                                  <div class =  "row">
+                                      <div class="row">
+                                          <div class='col-sm-5'>
+                                              <div class="form-inline">
+                                                  <div class="form-group">
+                                                      <div class="input-group date" [ngClass]="{'input-group-focus':focus===true}">
+                                                          <input  class="form-control" placeholder="yyyy-mm-dd"
+                                                               name="departure_date" [(ngModel)]="Departure" ngbDatepicker #d2="ngbDatepicker" (click)="d2.toggle()" (focus)="focus=true" (blur)="focus=false" required ngModel/>
+                                                          <div class="input-group-append">
+                                                              <span class="glyphicon glyphicon-calendar input-group-text">
+                                                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                              </span>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                              
+                                      <div class="col-md-6">
+                                                  
+                                          <div class="row">
+                                              <div class='col-sm-5'>
+                                                  <div class="form-inline">
+                                                      <div class="form-group">
+                                                          <div class="input-group date" [ngClass]="{'input-group-focus':focus===true}">
+                                                              <input class="form-control" placeholder="yyyy-mm-dd"
+                                                              name="arrival_date" [(ngModel)]="Arrival" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" (focus)="focus=true" (blur)="focus=false" />
+                                                              <div class="input-group-append">
+                                                                  <span class="glyphicon glyphicon-calendar input-group-text">
+                                                                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                                  </span>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                              
+                                      <br/>
+                                  </div>
+                              
+                              
+                                     <div class="row">
+                                      <div class="col-sm-5">
+                                          <div class=" form-group ">
+                                              <select class="form-control form-control-success " style="margin: 10px;" >
+                                                  <option>Has hotel package</option>
+                                                  <option value = "Yes">Yes</option>
+                                                  <option Valeu = "No">No</option>
+                                              </select>
+                                              
+                                          </div>
+                                      </div>
                                     </div>
-                                </div>
-                            </ng-template>
-                        </ngb-tab>
-                        <ngb-tab title="Approved/Decline Tickets">
-                            <ng-template ngbTabContent>
-                                <h3 class="text-muted">Not following anyone yet :(</h3>
-                                <br>
-                                <button class="btn btn-warning btn-round">Find artists</button>
-                            </ng-template>
-                        </ngb-tab>
-                    </ngb-tabset>
-                </div>
-            </div>
+                                      
+                              
+                                  <div class="row">
+                                      <div class="col-sm-7">
+                                          <button class="btn btn-danger btn-block btn-round" [disabled]="!addFlightForm.valid">Submit</button>
+                                          
+                                      </div>
+                                  </div>
+                              </form>
+    
+                            </div>
+                        </div>
+                    </ng-template>
+                </ngb-tab>
+                <ngb-tab title="Following">
+                    <ng-template ngbTabContent>
+                        <div class="card card-flights" style="color: blanchedalmond;">
+                           
+                            <mat-list>
+                                <h3 mat-subheader>Folders</h3>
+                                <mat-list-item *ngFor="let flights of flights; let i = index" (click)="toggleArrow(i)" class="list-item">
+                                  <mat-icon mat-list-icon >flight_takeoff</mat-icon>
+                                
+                                  <h4 mat-line>Departure  : {{flights.departure_date}}  {{flights.departure_airport}}</h4>
+                                  <p mat-line> Arrival  :{{flights.aiport}}  {{flights.arrival_airport}} </p>
+                                </mat-list-item>
+                              </mat-list> 
+                    
+                        </div>
+                        <br>
+                        
+                    </ng-template>
+                </ngb-tab>
+            </ngb-tabset>
         </div>
     </div>
 </div>
+
+
+
+
+
+
+

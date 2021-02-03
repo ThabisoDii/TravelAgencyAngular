@@ -40,10 +40,7 @@ export class SearchFlightsComponent implements OnInit {
       
        console.log(data) 
        this.flights= data;
-      //this.flightsEvent.emit(flights);
-      // this.router.navigate(['/', 'view-flights']);/// pass a list of flights with this route
-     
-      //this.router.navigate(['/view-flights'],flights);
+      
     });
    
   }

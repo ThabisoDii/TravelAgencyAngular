@@ -12,9 +12,5 @@ export class Flight {
        this.departure_date = departure_date
        this.arrival_date = arrival_date;
     }  
- 
-    //function 
-    disp():void { 
-       console.log("Engine is  :   "+this.arrival_date) 
-    } 
+
  }
