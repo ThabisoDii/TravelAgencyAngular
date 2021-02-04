@@ -18,6 +18,7 @@ import {TokenInterceptorService} from './services/token-interceptor.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
+import { AuthGuard } from './auth.guard';
 
 
 
@@ -46,7 +47,7 @@ import {MatIconModule} from '@angular/material/icon';
     provide : HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,
     multi: true
-  }],
+  },,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

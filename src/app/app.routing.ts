@@ -12,6 +12,7 @@ import { SigninComponent } from './examples/signin/signin.component';
 import { BookFlightComponent } from './examples/book-flight/book-flight.component';
 import { SearchFlightsComponent } from './examples/search-flights/search-flights.component';
 import { FlightsViewComponent } from './examples/flights-view/flights-view.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes =[
     { path: '', redirectTo: 'landing', pathMatch: 'full' },
@@ -20,8 +21,8 @@ const routes: Routes =[
     { path: 'signup',           component: SignupComponent },
     { path: 'signin',           component: SigninComponent },
     {path: 'search-flight',           component: SearchFlightsComponent },
-    { path: 'book-flight',           component: BookFlightComponent},
-    { path: 'user-profile',     component: ProfileComponent },
+    { path: 'book-flight',           component: BookFlightComponent,canActivate : [AuthGuard]},
+    { path: 'user-profile',     component: ProfileComponent,canActivate : [AuthGuard] },
     { path: 'view-flights',           component: FlightsViewComponent},
     { path: 'nucleoicons',      component: NucleoiconsComponent }
 ];

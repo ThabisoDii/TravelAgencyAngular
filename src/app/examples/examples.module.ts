@@ -5,6 +5,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
+import {MatMenuModule} from '@angular/material/menu';
 
 import { LandingComponent } from './landing/landing.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -22,7 +23,8 @@ import { FlightsViewTileComponent } from './flights-view-tile/flights-view-tile.
         NgbModule,
         BrowserAnimationsModule,
         MatListModule,
-        MatIconModule
+        MatIconModule,
+        MatMenuModule
     ],
     declarations: [
         LandingComponent,

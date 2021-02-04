@@ -13,8 +13,6 @@ export class ProfileComponent implements OnInit {
     isStandardUser :boolean; 
     isAdminUser :boolean; 
 
-   // flights: any = [];
-
     user:any ={
         name : "Thabiso",
         surname : "Diphare"
@@ -33,7 +31,7 @@ export class ProfileComponent implements OnInit {
         }
     }
 
-    flight: any[] = [
+    /*flight: any[] = [
         {
           departure_date: '10-01-2016',
           arrival_date: '10-01-2016',
@@ -52,7 +50,7 @@ export class ProfileComponent implements OnInit {
           departure_airport: 'OR Tambo Int.Airport',
           arrival_airport: 'King Shaka Int.Airport',
         }
-      ];
+      ];*/
 
     getFlightsPendingApproval(){
 
