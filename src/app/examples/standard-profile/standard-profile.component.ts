@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminService } from 'app/services/admin.service';
+import { BookingService } from 'app/services/booking.service';
 
 @Component({
-    selector: 'app-profile',
-    templateUrl: './profile.component.html',
-    styleUrls: ['./profile.component.scss']
+  selector: 'app-standard-profile',
+  templateUrl: './standard-profile.component.html',
+  styleUrls: ['./standard-profile.component.css']
 })
+export class StandardProfileComponent implements OnInit {
 
-export class ProfileComponent implements OnInit {
-
-    isStandardUser :boolean; 
+  isStandardUser :boolean; 
     isAdminUser :boolean; 
 
     user:any ={
@@ -18,17 +18,15 @@ export class ProfileComponent implements OnInit {
         surname : "Diphare"
     }
 
-    flights: any;
-    
-    constructor(private adminService: AdminService,private router: Router) { }
+    approvedFlights: any;
+    pendingFlights: any;
+    constructor(private adminService: BookingService,private router: Router) { }
 
     ngOnInit() {
 
-        this.isStandardUser =  false;
-        this.isAdminUser = true;
-        if(this.isAdminUser){
-            this.getFlightsPendingApproval()
-        }
+        this.getUserApprovedTickets()
+        this.getUserApprovalPendingTickets();
+        
     }
 
     /*flight: any[] = [
@@ -52,14 +50,24 @@ export class ProfileComponent implements OnInit {
         }
       ];*/
 
-    getFlightsPendingApproval(){
+      getUserApprovedTickets(){
 
-        this.adminService.getFlightsPendingApproval().subscribe(data => {
-            this.flights = data;
-            console.log(this.flights)  
+        this.adminService.getUserApprovedTickets().subscribe(data => {
+            this.approvedFlights = data;
+            console.log(this.approvedFlights)  
         });
   
     }
+
+
+    getUserApprovalPendingTickets(){
+
+      this.adminService.getUserApprovalPendingTickets().subscribe(data => {
+          this.pendingFlights = data;
+          console.log(this.pendingFlights)  
+      });
+
+  }
 
     addFlight(form){
 
@@ -68,32 +76,9 @@ export class ProfileComponent implements OnInit {
 
         const formData = {departure_airport : form.value.departure_airport,arrival_airport : form.value.arrival_airport,departure_date : departure_date,arrival_date : arrival_date,departure_time : "14:00",arrival_time : "14:00"}
 
-        this.adminService.addFlight(formData).subscribe(data => {
-        });
+       // this.adminService.addFlight(formData).subscribe(data => {
+       // }); --->>>>must be book flight
   
-    }
-
-    approveTicket(ticketId:string){
-
-        const ticketToApprove = {ticketId: ticketId}
-        console.log(ticketId+"iiiiiiijknkn")
-
-        this.adminService.approveTicket(ticketToApprove).subscribe(data => {
-            console.log("flight approved" + data)
-        });
-
-    }
-
-    declineTicket(ticketId:string){
-
-        console.log(ticketId+"iiiiiiijknkn")
-
-        const ticketToDecline = {ticketId: ticketId}
-
-        this.adminService.declineTicket(ticketToDecline).subscribe(data => {
-            console.log("flight decline" + data)
-        });
-        
     }
 
     formatDate(date) {

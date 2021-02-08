@@ -1,0 +1,79 @@
+<div class="wrapper ">
+    <div class="page-header page-header-xs" data-parallax="true" style="background-image: url('./assets/img/fabio-mangione.jpg');">
+        <div class="filter"></div>
+    </div>
+    <div class="section profile-content page-color" >
+        <div class="container">
+            <div class="owner">
+                <div class="avatar">
+                    <img src="./assets/img/faces/joe-gardner-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                </div>
+                <div class="name">
+                    <h4 class="title">{{user.name}} {{user.surname}}<br /></h4>
+                    <h6 class="description">Standard User</h6>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+
+
+
+    <div class="nav-tabs-navigation" >
+        <div class="nav-tabs-wrapper">
+            <ngb-tabset [justify]="'center'">
+               
+                <ngb-tab title="Approval Pending Tickets">
+                    <ng-template ngbTabContent>
+                        <div class="card card-flights" style="color: blanchedalmond;">
+                           
+                            <mat-list>
+                                <h3 mat-subheader>Folders</h3>
+                                <mat-list-item *ngFor="let pendingFlights of pendingFlights; let i = index" (click)="trigger.openMenu()" class="list-item">
+                                  <mat-icon mat-list-icon >flight_takeoff</mat-icon>
+                                
+                                  <h4 mat-line>Departure  : {{pendingFlights.departure_date}}  {{pendingFlights.departure_airport}}</h4>
+                                  <p mat-line> Arrival  :{{pendingFlights.aiport}}  {{pendingFlights.arrival_airport}} </p>
+                                  
+                                </mat-list-item>
+                                
+                              </mat-list> 
+                    
+                        </div>
+                        <br>
+                        
+                    </ng-template>
+                </ngb-tab>
+
+                <ngb-tab title="Approved Tickets">
+                    <ng-template ngbTabContent>
+                        <div class="card card-flights" style="color: blanchedalmond;">
+                           
+                            <mat-list>
+                                <h3 mat-subheader>Folders</h3>
+                                <mat-list-item *ngFor="let approvedFlights of approvedFlights; let i = index" (click)="trigger.openMenu()" class="list-item">
+                                  <mat-icon mat-list-icon >flight_takeoff</mat-icon>
+                                
+                                  <h4 mat-line>Departure  : {{approvedFlights.departure_date}}  {{approvedFlights.departure_airport}}</h4>
+                                  <p mat-line> Arrival  :{{approvedFlights.aiport}}  {{approvedFlights.arrival_airport}} </p>
+                                  
+                                </mat-list-item>
+                                
+                              </mat-list> 
+                    
+                        </div>
+                        <br>
+                        
+                    </ng-template>
+                </ngb-tab>
+            </ngb-tabset>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+

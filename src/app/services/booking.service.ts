@@ -15,4 +15,20 @@ export class BookingService {
     
     return this.httpClient.post('http://localhost:3000/search/flights',flightDetails)
   }
+
+  getUserApprovedTickets(){
+
+    
+    const httpHeaders = new HttpHeaders();
+    
+    return this.httpClient.get('http://localhost:3000/user-approved-tickets')
+  }
+
+  getUserApprovalPendingTickets(){
+
+    
+    const httpHeaders = new HttpHeaders();
+    
+    return this.httpClient.get('http://localhost:3000/user-pending-tickets')
+  }
 }

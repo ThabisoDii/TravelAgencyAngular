@@ -32,9 +32,10 @@ export class SigninComponent implements OnInit {
 
            
               if(localStorage.getItem("userType") === "admin"){
-                this.router.navigate(['/', 'user-profile']);
+                this.router.navigate(['/', 'admin-profile']);
               }else{
                 //route to standard user
+                this.router.navigate(['/', 'user-profile']);
               }
 
             

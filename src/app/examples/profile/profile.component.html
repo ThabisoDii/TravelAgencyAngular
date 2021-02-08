@@ -150,14 +150,14 @@
                                   <mat-icon mat-list-icon >flight_takeoff</mat-icon>
                                 
                                   <h4 mat-line>Departure  : {{flights.departure_date}}  {{flights.departure_airport}}</h4>
-                                  <p mat-line> Arrival  :{{flights.aiport}}  {{flights.arrival_airport}} </p>
+                                  <p mat-line> Arrival  :{{flights.airport}}  {{flights.arrival_airport}} </p>
                                   <button mat-icon-button #trigger=matMenuTrigger [matMenuTriggerFor]="menu">
                                     <mat-icon>more_vert</mat-icon>
                                  </button>
                                 </mat-list-item>
                                 <mat-menu #menu="matMenu">
-                                    <button mat-menu-item>Approve </button>
-                                    <button mat-menu-item>Decline</button>
+                                    <button (click)="approveTicket(flights.departure_date)"  mat-menu-item>Approve </button>
+                                    <button  (click)="declineTicket(flights.ticketId)"  mat-menu-item>Decline</button>
                                 </mat-menu>
                               </mat-list> 
                     

@@ -17,4 +17,12 @@ export class AdminService {
 
     return this.httpClient.post('http://localhost:3000/add-flight',flightDetails);
   }
+
+  approveTicket(ticketToApprove){
+    return this.httpClient.post('http://localhost:3000/approve-ticket',ticketToApprove);
+  }
+
+  declineTicket(ticketToDecline){
+    return this.httpClient.post('http://localhost:3000/decline-ticket',ticketToDecline);
+  }
 }
