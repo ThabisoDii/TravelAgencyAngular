@@ -76,22 +76,19 @@ export class ProfileComponent implements OnInit {
     approveTicket(ticketId:string){
 
         const ticketToApprove = {ticketId: ticketId}
-        console.log(ticketId+"iiiiiiijknkn")
 
         this.adminService.approveTicket(ticketToApprove).subscribe(data => {
-            console.log("flight approved" + data)
+            this.getFlightsPendingApproval()
         });
 
     }
 
     declineTicket(ticketId:string){
 
-        console.log(ticketId+"iiiiiiijknkn")
-
         const ticketToDecline = {ticketId: ticketId}
 
         this.adminService.declineTicket(ticketToDecline).subscribe(data => {
-            console.log("flight decline" + data)
+            this.getFlightsPendingApproval()
         });
         
     }

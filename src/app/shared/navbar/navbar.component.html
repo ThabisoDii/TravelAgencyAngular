@@ -41,7 +41,7 @@
                 </li>
 
                 <li class="nav-item" *ngIf="isOnline()">
-                    <a onclick="signOut()" *ngIf="userOnline" class="nav-link"><i class="nc-icon nc-single-02"></i>Logout</a>
+                    <a routerLink="/log-out" *ngIf="userOnline" class="nav-link"><i class="nc-icon nc-single-02"></i>Logout</a>
                     
                 </li>
                 <li class="nav-item" *ngIf="isDocumentation()">

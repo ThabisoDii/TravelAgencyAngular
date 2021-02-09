@@ -88,8 +88,5 @@ export class NavbarComponent implements OnInit {
       }
 
 
-      signOut(){
-        localStorage.removeItem("userOnline")
-        this.router.navigate(['/', 'signin']);
-      }
+      
 }

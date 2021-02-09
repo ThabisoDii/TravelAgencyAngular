@@ -54,7 +54,6 @@ export class StandardProfileComponent implements OnInit {
 
         this.adminService.getUserApprovedTickets().subscribe(data => {
             this.approvedFlights = data;
-            console.log(this.approvedFlights)  
         });
   
     }
@@ -64,22 +63,21 @@ export class StandardProfileComponent implements OnInit {
 
       this.adminService.getUserApprovalPendingTickets().subscribe(data => {
           this.pendingFlights = data;
-          console.log(this.pendingFlights)  
       });
 
   }
 
-    addFlight(form){
+   /* addFlight(form){
 
         var departure_date  = this.formatDate(form.value.departure_date);
         var arrival_date  = this.formatDate(form.value.arrival_date);
 
         const formData = {departure_airport : form.value.departure_airport,arrival_airport : form.value.arrival_airport,departure_date : departure_date,arrival_date : arrival_date,departure_time : "14:00",arrival_time : "14:00"}
 
-       // this.adminService.addFlight(formData).subscribe(data => {
-       // }); --->>>>must be book flight
+        this.adminService.addFlight(formData).subscribe(data => {
+        }); 
   
-    }
+    }*/
 
     formatDate(date) {
     

@@ -19,6 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import { AuthGuard } from './auth.guard';
+import { ClearSessionComponent } from './shared/clear-session/clear-session.component';
 
 
 
@@ -28,7 +29,8 @@ import { AuthGuard } from './auth.guard';
   declarations: [
     AppComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    ClearSessionComponent
   ],
   imports: [
     BrowserModule,
