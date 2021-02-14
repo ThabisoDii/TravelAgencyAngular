@@ -37,9 +37,7 @@ export class SigninComponent implements OnInit {
                 //route to standard user
                 this.router.navigate(['/', 'user-profile']);
               }
-
             
-            //this.router.navigate(['/', 'book-flight']); // check user type and redirect to the appropriate landing screen.
           }
           
       });

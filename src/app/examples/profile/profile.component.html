@@ -9,7 +9,7 @@
                     <img src="./assets/img/faces/joe-gardner-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
                 </div>
                 <div class="name">
-                    <h4 class="title">{{user.name}} {{user.surname}}<br /></h4>
+                    <h4 class="title">{{fullName}}<br /></h4>
                     <h6 class="description">Admin User</h6>
                 </div>
             </div>
@@ -156,7 +156,7 @@
                                  </button>
 
                                  <mat-menu #menu="matMenu">
-                                    <button (click)="approveTicket(flights.departure_date)"  mat-menu-item>Approve </button>
+                                    <button (click)="approveTicket(flights.ticketId)"  mat-menu-item>Approve </button>
                                     <button  (click)="declineTicket(flights.ticketId)"  mat-menu-item>Decline</button>
                                 </mat-menu>
                                 </mat-list-item>

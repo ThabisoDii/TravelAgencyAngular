@@ -9,7 +9,7 @@
                     <img src="./assets/img/faces/joe-gardner-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
                 </div>
                 <div class="name">
-                    <h4 class="title">{{user.name}} {{user.surname}}<br /></h4>
+                    <h4 class="title">{{fullName}}<br /></h4>
                     <h6 class="description">Standard User</h6>
                 </div>
             </div>
@@ -70,6 +70,18 @@
         </div>
     </div>
 </div>
+
+
+<ol>
+ 
+   
+    <li>
+      <button mat-raised-button (click)="openDialog()">Pick one</button>
+    </li>
+    <li *ngIf="animal">
+      You chose: <i>{{animal}}</i>
+    </li>
+  </ol>
 
 
 

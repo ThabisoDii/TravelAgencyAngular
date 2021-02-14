@@ -6,6 +6,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
 
 import { LandingComponent } from './landing/landing.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -23,7 +26,9 @@ import { StandardProfileComponent } from './standard-profile/standard-profile.co
         BrowserAnimationsModule,
         MatListModule,
         MatIconModule,
-        MatMenuModule
+        MatDialogModule,
+        MatMenuModule,
+        MatFormFieldModule
     ],
     declarations: [
         LandingComponent,

@@ -1,54 +1,54 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { AdminService } from 'app/services/admin.service';
 import { BookingService } from 'app/services/booking.service';
+import { DialogComponent } from '../dialog/dialog.component';
+
+export interface DialogData {
+  animal: string;
+  name: string;
+}
 
 @Component({
   selector: 'app-standard-profile',
   templateUrl: './standard-profile.component.html',
   styleUrls: ['./standard-profile.component.css']
 })
+
+
 export class StandardProfileComponent implements OnInit {
 
-  isStandardUser :boolean; 
-    isAdminUser :boolean; 
-
-    user:any ={
-        name : "Thabiso",
-        surname : "Diphare"
-    }
+  helper = new JwtHelperService();
+  fullName:any;
+  animal: string;
+  name: string;
 
     approvedFlights: any;
     pendingFlights: any;
-    constructor(private adminService: BookingService,private router: Router) { }
+    constructor(private adminService: BookingService,private router: Router,public dialog: MatDialog) { }
 
     ngOnInit() {
 
         this.getUserApprovedTickets()
         this.getUserApprovalPendingTickets();
+        this.fullName = this.getUserDetails().userDetails.name + ' '+this.getUserDetails().userDetails.surname;
+
         
     }
 
-    /*flight: any[] = [
-        {
-          departure_date: '10-01-2016',
-          arrival_date: '10-01-2016',
-          departure_airport: 'OR Tambo Int.Airport',
-          arrival_airport: 'King Shaka Int.Airport',
-        },
-        {
-          departure_date: '10-01-2016',
-          arrival_date: '10-01-2016',
-          departure_airport: 'OR Tambo Int.Airport',
-          arrival_airport: 'King Shaka Int.Airport',
-        },
-        {
-          departure_date: '10-01-2016',
-          arrival_date: '10-01-2016',
-          departure_airport: 'OR Tambo Int.Airport',
-          arrival_airport: 'King Shaka Int.Airport',
-        }
-      ];*/
+    openDialog(): void {
+      const dialogRef = this.dialog.open(DialogComponent, {
+        width: '250px',
+        data: {name: this.name, animal: this.animal}
+      });
+  
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+        this.animal = result;
+      });
+    }
 
       getUserApprovedTickets(){
 
@@ -66,6 +66,12 @@ export class StandardProfileComponent implements OnInit {
       });
 
   }
+
+  getUserDetails(){
+    const decoded = this.helper.decodeToken(localStorage.getItem("userOnline"));
+
+    return decoded;
+}
 
    /* addFlight(form){
 

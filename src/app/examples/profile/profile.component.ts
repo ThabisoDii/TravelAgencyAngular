@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { AdminService } from 'app/services/admin.service';
 
 @Component({
@@ -10,48 +12,18 @@ import { AdminService } from 'app/services/admin.service';
 
 export class ProfileComponent implements OnInit {
 
-    isStandardUser :boolean; 
-    isAdminUser :boolean; 
-
-    user:any ={
-        name : "Thabiso",
-        surname : "Diphare"
-    }
-
+    helper = new JwtHelperService();
+    fullName:any;
     flights: any;
     
-    constructor(private adminService: AdminService,private router: Router) { }
+    constructor(private adminService: AdminService,private router: Router,public dialog: MatDialog) { }
 
     ngOnInit() {
-
-        this.isStandardUser =  false;
-        this.isAdminUser = true;
-        if(this.isAdminUser){
-            this.getFlightsPendingApproval()
-        }
+        this.getFlightsPendingApproval()
+        this.fullName = this.getUserDetails().userDetails.name + ' '+this.getUserDetails().userDetails.surname;
     }
 
-    /*flight: any[] = [
-        {
-          departure_date: '10-01-2016',
-          arrival_date: '10-01-2016',
-          departure_airport: 'OR Tambo Int.Airport',
-          arrival_airport: 'King Shaka Int.Airport',
-        },
-        {
-          departure_date: '10-01-2016',
-          arrival_date: '10-01-2016',
-          departure_airport: 'OR Tambo Int.Airport',
-          arrival_airport: 'King Shaka Int.Airport',
-        },
-        {
-          departure_date: '10-01-2016',
-          arrival_date: '10-01-2016',
-          departure_airport: 'OR Tambo Int.Airport',
-          arrival_airport: 'King Shaka Int.Airport',
-        }
-      ];*/
-
+ 
     getFlightsPendingApproval(){
 
         this.adminService.getFlightsPendingApproval().subscribe(data => {
@@ -91,6 +63,12 @@ export class ProfileComponent implements OnInit {
             this.getFlightsPendingApproval()
         });
         
+    }
+
+    getUserDetails(){
+        const decoded = this.helper.decodeToken(localStorage.getItem("userOnline"));
+
+        return decoded;
     }
 
     formatDate(date) {
