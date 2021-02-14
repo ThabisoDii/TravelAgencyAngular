@@ -12,9 +12,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
 import { BookFlightComponent } from './book-flight/book-flight.component';
-import { FlightsViewComponent } from './flights-view/flights-view.component';
 import { SearchFlightsComponent } from './search-flights/search-flights.component';
-import { FlightsViewTileComponent } from './flights-view-tile/flights-view-tile.component';
 import { StandardProfileComponent } from './standard-profile/standard-profile.component';
 
 @NgModule({
@@ -33,9 +31,7 @@ import { StandardProfileComponent } from './standard-profile/standard-profile.co
         ProfileComponent,
         SigninComponent,
         BookFlightComponent,
-        FlightsViewComponent,
         SearchFlightsComponent,
-        FlightsViewTileComponent,
         StandardProfileComponent
     ]
 })

@@ -11,7 +11,6 @@ import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.compo
 import { SigninComponent } from './examples/signin/signin.component';
 import { BookFlightComponent } from './examples/book-flight/book-flight.component';
 import { SearchFlightsComponent } from './examples/search-flights/search-flights.component';
-import { FlightsViewComponent } from './examples/flights-view/flights-view.component';
 import { AuthGuard } from './auth.guard';
 import { StandardProfileComponent } from './examples/standard-profile/standard-profile.component';
 import { ClearSessionComponent } from './shared/clear-session/clear-session.component';
@@ -26,7 +25,6 @@ const routes: Routes =[
     { path: 'book-flight',           component: BookFlightComponent,canActivate : [AuthGuard]},
     { path: 'admin-profile',     component: ProfileComponent,canActivate : [AuthGuard]},
     { path: 'user-profile',     component: StandardProfileComponent },
-    { path: 'view-flights',           component: FlightsViewComponent},
     { path: 'log-out',     component: ClearSessionComponent,canActivate : [AuthGuard] },
     { path: 'nucleoicons',      component: NucleoiconsComponent }
 ];

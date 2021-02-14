@@ -83,23 +83,6 @@
 
 
     <div class="row">
-       <br>
-       <div class="row"></div>
-        <div class="col-sm-3">
-            <div class="form-group ">
-                <select class="form-control form-control-success " >
-                    <option>Quatity</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                </select>
-                
-            </div>
-        </div>
-        
-    </div>
-
-    <div class="row">
         <div class="col-lg-8">
             <button class="btn btn-danger btn-block btn-round" [disabled]="!searchFlightForm.valid">Find flights</button>
             
@@ -111,7 +94,7 @@
 <div class="">
     
     <mat-list>
-        <h3 mat-subheader>Folders</h3>
+        <h3 mat-subheader>Flights</h3>
         <mat-list-item *ngFor="let flights of flights; let i = index" (click)="toggleArrow(i)" class="list-item">
           <mat-icon mat-list-icon >flight_takeoff</mat-icon>
         
