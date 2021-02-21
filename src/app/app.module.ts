@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
 
@@ -20,6 +20,9 @@ import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import { AuthGuard } from './auth.guard';
 import { ClearSessionComponent } from './shared/clear-session/clear-session.component';
+import { DialogConfirmationComponent } from './shared/dialog-confirmation/dialog-confirmation.component';
+import { ConfirmationDialogService } from './services/confirmationdialog.service';
+import { SearchFlightsComponent } from './examples/search-flights/search-flights.component';
 
 
 
@@ -30,7 +33,8 @@ import { ClearSessionComponent } from './shared/clear-session/clear-session.comp
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    ClearSessionComponent
+    ClearSessionComponent,
+    DialogConfirmationComponent
   ],
   imports: [
     BrowserModule,
@@ -43,13 +47,16 @@ import { ClearSessionComponent } from './shared/clear-session/clear-session.comp
     AppRoutingModule,
     BrowserAnimationsModule,
     MatListModule,
-    MatIconModule
+    MatIconModule,
+    
+
   ],
-  providers: [DatePipe,{
+  providers: [DatePipe,ConfirmationDialogService,NgbActiveModal,{
     provide : HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,
     multi: true
   },,AuthGuard],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  //entryComponents: [ SearchFlightsComponent ]
 })
 export class AppModule { }

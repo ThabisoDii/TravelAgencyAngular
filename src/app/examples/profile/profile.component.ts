@@ -38,7 +38,13 @@ export class ProfileComponent implements OnInit {
         var departure_date  = this.formatDate(form.value.departure_date);
         var arrival_date  = this.formatDate(form.value.arrival_date);
 
-        const formData = {departure_airport : form.value.departure_airport,arrival_airport : form.value.arrival_airport,departure_date : departure_date,arrival_date : arrival_date,departure_time : "14:00",arrival_time : "14:00"}
+        var isHotelIncluded = false;
+
+        if(form.value.isHotelIncluded === "Yes"){
+            isHotelIncluded = true;
+        }
+
+        const formData = {departure_airport : form.value.departure_airport,arrival_airport : form.value.arrival_airport,departure_date : departure_date,arrival_date : arrival_date,departure_time : "15:00",arrival_time : "17:00",isHotelIncluded}
 
         this.adminService.addFlight(formData).subscribe(data => {
         });

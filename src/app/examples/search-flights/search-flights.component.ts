@@ -1,8 +1,13 @@
 import { DatePipe } from '@angular/common';
 import { Component, Input, OnInit, Output } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Router,NavigationExtras } from '@angular/router';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { BookingService } from 'app/services/booking.service';
+import { ConfirmationDialogService } from 'app/services/confirmationdialog.service';
 import { EventEmitter } from 'events';
+import { DialogComponent } from '../dialog/dialog.component';
 
 
 
@@ -15,13 +20,31 @@ import { EventEmitter } from 'events';
 })
 export class SearchFlightsComponent implements OnInit {
 
+  @Input() title: string;
+  @Input() message: string;
+  @Input() btnOkText: string;
+  @Input() btnCancelText: string;
+
   flights: any = [];
+  animal: string;
+  dialogData: string;
+
+  flight : any;
+
+  searchFlightForm : FormGroup;
  
-  constructor(private bookingService: BookingService,public datepipe: DatePipe,private router: Router) { }
+  constructor(private bookingService: BookingService,private router: Router,private activeModal: NgbActiveModal,private confirmationDialogService: ConfirmationDialogService) { }
 
    navigationExtras: NavigationExtras = {};
 
   ngOnInit(): void {
+    this.searchFlightForm = new FormGroup({
+      departure_airport : new FormControl(),
+      arrival_airport : new FormControl(),
+      departure_date : new FormControl(),
+      arrival_date : new FormControl()
+
+    })
   }
 
   closeDatepicker(id){
@@ -58,5 +81,13 @@ export class SearchFlightsComponent implements OnInit {
 
     return [year, month, day].join('-');
 }
+
+public openConfirmationDialog(flight:any) {
+  this.confirmationDialogService.confirm('Please confirm..', 'Do you really want to book this flight ?')
+  .then((confirmed) => console.log('User confirmed:'+flight.departure_airport, confirmed))
+  .catch();
+}
+
+
 
 }

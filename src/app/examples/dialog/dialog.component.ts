@@ -20,4 +20,10 @@ export class DialogComponent implements OnInit {
     this.dialogRef.close();
   }
 
+  bookTicket(): void {
+
+    this.data;
+    this.dialogRef.close();
+  }
+
 }

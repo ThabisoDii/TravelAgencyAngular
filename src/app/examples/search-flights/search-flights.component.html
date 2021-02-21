@@ -95,7 +95,8 @@
     
     <mat-list>
         <h3 mat-subheader>Flights</h3>
-        <mat-list-item *ngFor="let flights of flights; let i = index" (click)="toggleArrow(i)" class="list-item">
+        <mat-list-item *ngFor="let flights of flights; let i = index" (click)="openConfirmationDialog(flights)" class="list-item" >
+            <input hidden [(ngModel)]="flight">
           <mat-icon mat-list-icon >flight_takeoff</mat-icon>
         
           <h4 mat-line>Departure date : {{flights.departure_date}}  Departure Time {{flights.departure_time}}</h4>
@@ -108,5 +109,7 @@
 </div>
 </div>
 </div>
+
+
 
 
