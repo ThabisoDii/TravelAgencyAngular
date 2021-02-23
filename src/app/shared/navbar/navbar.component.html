@@ -30,7 +30,7 @@
                 </li>
                 
                 <li class="nav-item" *ngIf="!isDocumentation()">
-                    <a href="http://pk2-angular.creative-tim.com/documentation/tutorial" class="nav-link" target="_blank"><i class="nc-icon nc-email-85"></i> Contact Us</a>
+                    <a href="" class="nav-link" target="_blank"><i class="nc-icon nc-email-85"></i> Contact Us</a>
                 </li>
                 <li class="nav-item" *ngIf="!isDocumentation()">
                     <a routerLink ="search-flight" class="nav-link" ><i class="nc-icon nc-zoom-split"></i> Search Flight</a>
@@ -40,11 +40,11 @@
                 </li>
 
                 <li class="nav-item" *ngIf="isOnline()">
-                    <a routerLink="/user-profile" *ngIf="typeUserOnline=== 'standard' " class="nav-link"><i class="nc-icon nc-single-02"></i>My Dashboard</a>
+                    <a routerLink="/user-profile" *ngIf="typeUserOnline=== 'standard' " class="nav-link"><i class="nc-icon nc-badge"></i>My Dashboard</a>
                 </li>
 
                 <li class="nav-item" *ngIf="isOnline()">
-                    <a routerLink="/admin-profile" *ngIf="typeUserOnline=== 'admin' " class="nav-link"><i class="nc-icon nc-single-02"></i>My Dashboard</a>
+                    <a routerLink="/admin-profile" *ngIf="typeUserOnline=== 'admin' " class="nav-link"><i class="nc-icon nc-badge"></i>My Dashboard</a>
                 </li>
 
                 <li class="nav-item" *ngIf="isOnline()">

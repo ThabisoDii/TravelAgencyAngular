@@ -6,9 +6,6 @@ import { Router,NavigationExtras } from '@angular/router';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { BookingService } from 'app/services/booking.service';
 import { ConfirmationDialogService } from 'app/services/confirmationdialog.service';
-import { EventEmitter } from 'events';
-import { DialogComponent } from '../dialog/dialog.component';
-
 
 
 @Component({
@@ -28,6 +25,9 @@ export class SearchFlightsComponent implements OnInit {
   flights: any = [];
   animal: string;
   dialogData: string;
+
+  userOnline:any;
+  typeUserOnline:any;
 
   flight : any;
 
@@ -83,9 +83,27 @@ export class SearchFlightsComponent implements OnInit {
 }
 
 public openConfirmationDialog(flight:any) {
-  this.confirmationDialogService.confirm('Please confirm..', 'Do you really want to book this flight ?')
-  .then((confirmed) => console.log('User confirmed:'+flight.departure_airport, confirmed))
-  .catch();
+
+  //check if user login...
+  var isOnline = this.isOnline();
+  if(isOnline){
+
+    this.confirmationDialogService.confirm('Please confirm..', 'Do you really want to book this flight ?')
+    .then((confirmed) => console.log('User confirmed:'+flight.departure_airport, confirmed))
+    .catch();
+
+  }
+  
+}
+
+isOnline() {
+  this.userOnline = localStorage.getItem("userOnline");
+
+  if(this.userOnline != null){
+      return true;
+  }else{
+      return false;
+  }
 }
 
 
