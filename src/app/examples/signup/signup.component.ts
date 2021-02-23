@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators  } from '@angular/forms';
 import { Router } from '@angular/router';
 import {RegistrationService} from '../../services/registration.service'
 
@@ -12,24 +13,52 @@ export class SignupComponent implements OnInit {
     focus;
     focus1;
 
-    isNotRegistered:boolean; 
-    constructor(private registrationService: RegistrationService,private router: Router) { }
+    registerForm: FormGroup;
+    submitted = false;
 
-    ngOnInit() {}
+    isNotRegistered:boolean; 
+    constructor(private registrationService: RegistrationService,private router: Router,private formBuilder: FormBuilder) { }
+
+    ngOnInit() {
+
+        this.registerForm = this.formBuilder.group({
+            name: ['', Validators.required],
+            surname: ['', Validators.required],
+            email: ['', [Validators.required, Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
+            password: ['', [Validators.required]]
+        });
+    }
 
     registerUser(form){
 
-        const formData = {email : form.value.email,name : form.value.name,surname : form.value.surname,userType : "standard",passwordd : form.value.password}
+        this.submitted = true;
+
+        if (!this.registerForm.invalid) {
+            const formData = {email : form.value.email,name : form.value.name,surname : form.value.surname,userType : "standard",passwordd : form.value.password}
 
         this.registrationService.registerUser(formData).subscribe(data => {
+
+            alert('SUCCESS!! :-)\n\n' + JSON.stringify(""))
+
+            //route to signin
             
         },(error)=>{
             //pop that you can't log in
             this.isNotRegistered = true;
         });
+        }
+
+        
+
+
 
     }
+
+    get f()
+    { return this.registerForm.controls; }
 }
+
+
 
 /** 
  * 

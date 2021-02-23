@@ -86,6 +86,8 @@
                                                       </div>
                                                   </div>
                                               </div>
+
+                                              
                                           </div>
                                       </div>
                               
@@ -97,7 +99,7 @@
                                                       <div class="form-group">
                                                           <div class="input-group date" [ngClass]="{'input-group-focus':focus===true}">
                                                               <input class="form-control" placeholder="yyyy-mm-dd"
-                                                              name="arrival_date" [(ngModel)]="Arrival" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" (focus)="focus=true" (blur)="focus=false" />
+                                                              name="arrival_date" [(ngModel)]="Arrival" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" (focus)="focus=true" (blur)="focus=false" required ngModel/>
                                                               <div class="input-group-append">
                                                                   <span class="glyphicon glyphicon-calendar input-group-text">
                                                                     <i class="fa fa-calendar" aria-hidden="true"></i>
@@ -106,13 +108,39 @@
                                                           </div>
                                                       </div>
                                                   </div>
+
+                                                  
                                               </div>
                                           </div>
+
+                                          
                                       </div>
                               
                                       <br/>
                                   </div>
-                              
+
+
+                                  
+                                  
+
+                                  <div class="row">
+                                    <div class="col-5">
+                                        <div class=" form-group ">
+                                            <label >Select a time:</label>
+                                  <input type="time" name="departure_time" required ngModel>
+
+                                 
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                        <div class=" form-group ">
+                                  <input type="time" name="arrival_time" required ngModel>
+
+                                        </div>
+                                    </div>
+                                  </div>
+
                               
                                      <div class="row">
                                       <div class="col-sm-5">
@@ -142,7 +170,7 @@
                 </ngb-tab>
                 <ngb-tab title="Ticket Pending Approval">
                     <ng-template ngbTabContent>
-                        <div class="card card-flights" style="color: blanchedalmond;">
+                        <div class="card card-flights ex1" style="color: blanchedalmond;">
                            
                             <mat-list>
                                 <h3 mat-subheader>Folders</h3>

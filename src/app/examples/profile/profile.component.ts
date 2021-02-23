@@ -19,6 +19,8 @@ export class ProfileComponent implements OnInit {
     constructor(private adminService: AdminService,private router: Router,public dialog: MatDialog) { }
 
     ngOnInit() {
+
+
         this.getFlightsPendingApproval()
         this.fullName = this.getUserDetails().userDetails.name + ' '+this.getUserDetails().userDetails.surname;
     }
@@ -44,9 +46,11 @@ export class ProfileComponent implements OnInit {
             isHotelIncluded = true;
         }
 
-        const formData = {departure_airport : form.value.departure_airport,arrival_airport : form.value.arrival_airport,departure_date : departure_date,arrival_date : arrival_date,departure_time : "15:00",arrival_time : "17:00",isHotelIncluded}
+        const formData = {departure_airport : form.value.departure_airport,arrival_airport : form.value.arrival_airport,departure_date : departure_date,arrival_date : arrival_date,departure_time : form.value.departure_time,arrival_time : form.value.arrival_time,includesHotel :form.value.isHotelIncluded}
 
         this.adminService.addFlight(formData).subscribe(data => {
+            alert('SUCCESS!! :-)\n\n' + JSON.stringify(""))
+
         });
   
     }
@@ -57,6 +61,7 @@ export class ProfileComponent implements OnInit {
 
         this.adminService.approveTicket(ticketToApprove).subscribe(data => {
             this.getFlightsPendingApproval()
+            alert('SUCCESS!! :-)\n\n' + JSON.stringify(""))
         });
 
     }
@@ -67,6 +72,7 @@ export class ProfileComponent implements OnInit {
 
         this.adminService.declineTicket(ticketToDecline).subscribe(data => {
             this.getFlightsPendingApproval()
+            alert('SUCCESS!! :-)\n\n' + JSON.stringify(""))
         });
         
     }

@@ -2,6 +2,11 @@ select {
     font-family: 'FontAwesome', 'sans-serif';
   }
 
+  .ex1 {
+    height: 40px;
+    width: 200px;
+    overflow-y: scroll;
+  }
 
   .mat-list-icon {
     color: rgba(0, 0, 0, 0.54);
