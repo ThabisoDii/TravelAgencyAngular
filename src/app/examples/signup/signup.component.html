@@ -51,7 +51,6 @@
 
                                   <input type="email" class="form-control" name = "email" placeholder="Email" (focus)="focus=true" (blur)="focus=false" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" required ngModel>
                                   <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-                                    <div *ngIf="f.email.errors.required">Email is required</div>
                                     <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
                                 </div>
                               </div>

@@ -24,7 +24,7 @@ export class SignupComponent implements OnInit {
         this.registerForm = this.formBuilder.group({
             name: ['', Validators.required],
             surname: ['', Validators.required],
-            email: ['', [Validators.required, Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
+            email: ['', [Validators.required]],
             password: ['', [Validators.required]]
         });
     }
@@ -33,20 +33,23 @@ export class SignupComponent implements OnInit {
 
         this.submitted = true;
 
-        if (!this.registerForm.invalid) {
+        
+           
+        
             const formData = {email : form.value.email,name : form.value.name,surname : form.value.surname,userType : "standard",passwordd : form.value.password}
 
-        this.registrationService.registerUser(formData).subscribe(data => {
-
-            alert('SUCCESS!! :-)\n\n' + JSON.stringify(""))
-
-            //route to signin
-            
-        },(error)=>{
-            //pop that you can't log in
-            this.isNotRegistered = true;
-        });
-        }
+            this.registrationService.registerUser(formData).subscribe(data => {
+    
+                alert('SUCCESS!! :-)\n\n' + JSON.stringify(""))
+                this.router.navigate(['/', 'signin']);
+    
+                //route to signin
+                
+            },(error)=>{
+                //pop that you can't log in
+                this.isNotRegistered = true;
+            });
+        
 
         
 
