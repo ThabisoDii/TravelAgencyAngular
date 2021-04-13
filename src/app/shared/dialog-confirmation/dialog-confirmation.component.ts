@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { BookingService } from 'app/services/booking.service';
 
 @Component({
   selector: 'app-dialog-confirmation',
@@ -13,7 +14,7 @@ export class DialogConfirmationComponent implements OnInit {
   @Input() btnOkText: string;
   @Input() btnCancelText: string;
 
-  constructor(private activeModal: NgbActiveModal) { }
+  constructor(private activeModal: NgbActiveModal,private bookingService: BookingService) { }
 
   ngOnInit() {
   }
@@ -23,6 +24,7 @@ export class DialogConfirmationComponent implements OnInit {
   }
 
   public accept() {
+   // this.bookingService.bookTickets()
     this.activeModal.close(true);
   }
 

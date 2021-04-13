@@ -95,7 +95,7 @@
     
     <mat-list>
         <h3 mat-subheader>Flights</h3>
-        <mat-list-item *ngFor="let flights of flights; let i = index" (click)="openConfirmationDialog(flights)" class="list-item" >
+        <mat-list-item *ngFor="let flights of flights; let i = index" (click)="bookTicket(flights)" class="list-item" >
             <input hidden [(ngModel)]="flight">
           <mat-icon mat-list-icon >flight_takeoff</mat-icon>
         

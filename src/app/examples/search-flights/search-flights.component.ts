@@ -4,8 +4,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router,NavigationExtras } from '@angular/router';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { BookingService } from 'app/services/booking.service';
-import { ConfirmationDialogService } from 'app/services/confirmationdialog.service';
+import { BookingService } from '../../services/booking.service';
+import { ConfirmationDialogService } from '../../services/confirmationdialog.service';
 
 
 @Component({
@@ -82,15 +82,24 @@ export class SearchFlightsComponent implements OnInit {
     return [year, month, day].join('-');
 }
 
-public openConfirmationDialog(flight:any) {
+public bookTicket(flight:any) {
 
   //check if user login...
   var isOnline = this.isOnline();
   if(isOnline){
 
-    this.confirmationDialogService.confirm('Please confirm..', 'Do you really want to book this flight ?')
+    /*this.confirmationDialogService.confirm('Please confirm..', 'Do you really want to book this flight ?')
     .then((confirmed) => console.log('User confirmed:'+flight.departure_airport, confirmed))
-    .catch();
+    .catch();*/
+
+    //this.bookingService.bookTickets(flight);
+
+    this.bookingService.bookTickets(flight).subscribe(data => {
+      
+      console.log(data) 
+      this.flights= data;
+     
+   });
 
   }
   
